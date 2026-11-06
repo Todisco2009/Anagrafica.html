@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabella Dinamica Semplice</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .form-box {
+      margin-bottom: 20px;
+    }
+    input {
+      margin: 5px;
+      padding: 5px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Inserimento Dati</h2>
+  
+  <div class="form-box">
+    <input type="text" id="nome" placeholder="Nome"><br>
+    <input type="text" id="cognome" placeholder="Cognome"><br>
+    <input type="text" id="indirizzo" placeholder="Indirizzo"><br>
+    <input type="text" id="citta" placeholder="Città"><br>
+    <input type="number" id="eta" placeholder="Età"><br><br>
+    <button onclick="aggiungi()">Aggiungi</button>
+  </div>
+
+  <h2>Tabella</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Indirizzo</th>
+        <th>Città</th>
+        <th>Età</th>
+      </tr>
+    </thead>
+    <tbody id="tabella">
+      <!-- Le righe verranno inserite qui -->
+    </tbody>
+  </table>
+
+  <script>
+    function aggiungi() {
+      // 1. Prendo i valori
+      let n = document.getElementById("nome").value;
+      let c = document.getElementById("cognome").value;
+      let i = document.getElementById("indirizzo").value;
+      let ci = document.getElementById("citta").value;
+      let e = document.getElementById("eta").value;
+
+      // 2. Creo la stringa per la riga
+      let riga = "<tr><td>" + n + "</td><td>" + c + "</td><td>" + i + "</td><td>" + ci + "</td><td>" + e + "</td></tr>";
+
+      // 3. La aggiungo alla tabella
+      document.getElementById("tabella").innerHTML += riga;
+
+      // 4. Pulisco i campi
+      document.getElementById("nome").value = "";
+      document.getElementById("cognome").value = "";
+      document.getElementById("indirizzo").value = "";
+      document.getElementById("citta").value = "";
+      document.getElementById("eta").value = "";
+    }
+  </script>
+
+</body>
+</html>
